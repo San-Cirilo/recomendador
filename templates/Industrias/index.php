@@ -1,48 +1,46 @@
-<?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\Industria[]|\Cake\Collection\CollectionInterface $industrias
- */
-?>
-<div class="industrias index content">
-    <?= $this->Html->link(__('New Industria'), ['action' => 'add'], ['class' => 'button float-right']) ?>
-    <h3><?= __('Industrias') ?></h3>
-    <div class="table-responsive">
-        <table>
-            <thead>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="page-header">
+            <h2>Industrias</h2>
+            <hr>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
                 <tr>
                     <th><?= $this->Paginator->sort('id') ?></th>
                     <th><?= $this->Paginator->sort('nombre') ?></th>
                     <th><?= $this->Paginator->sort('created') ?></th>
                     <th><?= $this->Paginator->sort('modified') ?></th>
-                    <th class="actions"><?= __('Actions') ?></th>
+                    <th class="actions"><?= __('Acciones') ?></th>
                 </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($industrias as $industria): ?>
-                <tr>
-                    <td><?= $this->Number->format($industria->id) ?></td>
-                    <td><?= h($industria->nombre) ?></td>
-                    <td><?= h($industria->created) ?></td>
-                    <td><?= h($industria->modified) ?></td>
-                    <td class="actions">
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $industria->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $industria->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $industria->id], ['confirm' => __('Are you sure you want to delete # {0}?', $industria->id)]) ?>
-                    </td>
-                </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
-    </div>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
-        </ul>
-        <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
+                </thead>
+                <tbody>
+                    <?php foreach ($industrias as $industria): ?>
+                        <tr>
+                            <td><?= $this->Number->format($industria->id) ?></td>
+                            <td><?= h($industria->nombre) ?></td>
+                            <td><?= h($industria->created) ?></td>
+                            <td><?= h($industria->modified) ?></td>
+                            <td class="actions">
+                            <?= $this->Html->link('Ver', ['action' => 'view', $industria->id],['class' => 'btn btn-info btn-sm']) ?>
+                            <?= $this->Html->link('Editar', ['action' => 'edit', $industria->id],['class' => 'btn btn-primary btn-sm']) ?>
+                            <?= $this->Form->postLink('Eliminar', ['action' => 'delete', $industria->id],['class' => 'btn btn-danger btn-sm'], ['confirm' => __('Eliminar industria?', $industria->id)]) ?>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+        <div class="paginator">
+            <ul class="pagination">
+                <?= $this->Paginator->prev('< ' . __('Anterior'),['class' => 'page-item']) ?>
+                <?= $this->Paginator->numbers(['before' => '', 'after' => '']) ?>
+                <?= $this->Paginator->next(__('Siguiente') . ' >') ?>
+            </ul>
+            <p><?= $this->Paginator->counter() ?></p>
+        </div>
     </div>
 </div>
+

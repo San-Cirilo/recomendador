@@ -74,10 +74,10 @@
             <div class="accordion-body">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                        <?= $this->Html->link('Crear Perfil',['controller' => 'Usuarios', 'action' => 'add']) ?>
+                        <?= $this->Html->link('Crear Perfil',['controller' => 'Perfiles', 'action' => 'add']) ?>
                     </li>
                     <li class="list-group-item">
-                        <?= $this->Html->link('Listar Perfiles',['controller' => 'Usuarios', 'action' => 'index']) ?>
+                        <?= $this->Html->link('Listar Perfiles',['controller' => 'Perfiles', 'action' => 'index']) ?>
                     </li>
                 </ul>
             </div>
@@ -218,11 +218,11 @@
     </div>
     <div class="accordion-item">
         <h2 class="accordion-header" id="flush-headingTwenty">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwenty" aria-expanded="false" aria-controls="flush-collapseTwenty">
+            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwenty" aria-expanded="false" aria-controls="flush-collapseTwenty">
                 Tipo de Servicios
             </button>
         </h2>
-        <div id="flush-collapseTwenty" class="accordion-collapse collapse" aria-labelledby="flush-headingTwenty" data-bs-parent="#accordionFlushTwenty">
+        <div id="flush-collapseTwenty" class="accordion-collapse collapse " aria-labelledby="flush-headingTwenty" data-bs-parent="#accordionFlushTwenty">
             <div class="accordion-body">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">

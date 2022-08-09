@@ -1,15 +1,14 @@
-<?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\Referencia[]|\Cake\Collection\CollectionInterface $referencias
- */
-?>
-<div class="referencias index content">
-    <?= $this->Html->link(__('New Referencia'), ['action' => 'add'], ['class' => 'button float-right']) ?>
-    <h3><?= __('Referencias') ?></h3>
-    <div class="table-responsive">
-        <table>
-            <thead>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="page-header">
+            <h2>Prospectos</h2>
+            <hr>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
                 <tr>
                     <th><?= $this->Paginator->sort('id') ?></th>
                     <th><?= $this->Paginator->sort('producto_id') ?></th>
@@ -18,10 +17,10 @@
                     <th><?= $this->Paginator->sort('prospecto_id') ?></th>
                     <th><?= $this->Paginator->sort('cargo_contacto') ?></th>
                     <th><?= $this->Paginator->sort('relacion_contacto') ?></th>
-                    <th class="actions"><?= __('Actions') ?></th>
+                    <th class="actions"><?= __('Acciones') ?></th>
                 </tr>
-            </thead>
-            <tbody>
+                </thead>
+                <tbody>
                 <?php foreach ($referencias as $referencia): ?>
                 <tr>
                     <td><?= $this->Number->format($referencia->id) ?></td>
@@ -32,23 +31,22 @@
                     <td><?= h($referencia->cargo_contacto) ?></td>
                     <td><?= h($referencia->relacion_contacto) ?></td>
                     <td class="actions">
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $referencia->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $referencia->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $referencia->id], ['confirm' => __('Are you sure you want to delete # {0}?', $referencia->id)]) ?>
+                        <?= $this->Html->link('Ver', ['action' => 'view', $referencia->id],['class' => 'btn btn-info btn-sm']) ?>
+                        <?= $this->Html->link('Editar', ['action' => 'edit', $referencia->id],['class' => 'btn btn-primary btn-sm']) ?>
+                        <?= $this->Form->postLink('Eliminar', ['action' => 'delete', $referencia->id],['class' => 'btn btn-danger btn-sm'], ['confirm' => __('Eliminar Referencia?', $referencia->id)]) ?>
                     </td>
                 </tr>
                 <?php endforeach; ?>
-            </tbody>
-        </table>
-    </div>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
-        </ul>
-        <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
+                </tbody>
+            </table>
+        </div>
+        <div class="paginator">
+            <ul class="pagination">
+                <?= $this->Paginator->prev('< ' . __('Anterior'),['class' => 'page-item']) ?>
+                <?= $this->Paginator->numbers(['before' => '', 'after' => '']) ?>
+                <?= $this->Paginator->next(__('Siguiente') . ' >') ?>
+            </ul>
+            <p><?= $this->Paginator->counter() ?></p>
+        </div>
     </div>
 </div>

@@ -1,15 +1,14 @@
-<?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\Producto[]|\Cake\Collection\CollectionInterface $productos
- */
-?>
-<div class="productos index content">
-    <?= $this->Html->link(__('New Producto'), ['action' => 'add'], ['class' => 'button float-right']) ?>
-    <h3><?= __('Productos') ?></h3>
-    <div class="table-responsive">
-        <table>
-            <thead>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="page-header">
+            <h2>Productos</h2>
+            <hr>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
                 <tr>
                     <th><?= $this->Paginator->sort('id') ?></th>
                     <th><?= $this->Paginator->sort('empresa_id') ?></th>
@@ -17,12 +16,12 @@
                     <th><?= $this->Paginator->sort('nombre') ?></th>
                     <th><?= $this->Paginator->sort('precio_promedio') ?></th>
                     <th><?= $this->Paginator->sort('modelo_servicio') ?></th>
-                    <th><?= $this->Paginator->sort('created') ?></th>
-                    <th><?= $this->Paginator->sort('modified') ?></th>
-                    <th class="actions"><?= __('Actions') ?></th>
+                    <th><?= $this->Paginator->sort('created',['Creado']) ?></th>
+                    <th><?= $this->Paginator->sort('modified',['Modificado']) ?></th>
+                    <th class="actions"><?= __('Acciones') ?></th>
                 </tr>
-            </thead>
-            <tbody>
+                </thead>
+                <tbody>
                 <?php foreach ($productos as $producto): ?>
                 <tr>
                     <td><?= $this->Number->format($producto->id) ?></td>
@@ -34,23 +33,22 @@
                     <td><?= h($producto->created) ?></td>
                     <td><?= h($producto->modified) ?></td>
                     <td class="actions">
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $producto->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $producto->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $producto->id], ['confirm' => __('Are you sure you want to delete # {0}?', $producto->id)]) ?>
+                        <?= $this->Html->link('Ver', ['action' => 'view', $producto->id],['class' => 'btn btn-info btn-sm']) ?>
+                        <?= $this->Html->link('Editar', ['action' => 'edit', $producto->id],['class' => 'btn btn-primary btn-sm']) ?>
+                        <?= $this->Form->postLink('Eliminar', ['action' => 'delete', $producto->id],['class' => 'btn btn-danger btn-sm'], ['confirm' => __('Eliminar Producto?', $producto->id)]) ?>
                     </td>
                 </tr>
                 <?php endforeach; ?>
-            </tbody>
-        </table>
-    </div>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
-        </ul>
-        <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
+                </tbody>
+            </table>
+        </div>
+        <div class="paginator">
+            <ul class="pagination">
+                <?= $this->Paginator->prev('< ' . __('Anterior'),['class' => 'page-item']) ?>
+                <?= $this->Paginator->numbers(['before' => '', 'after' => '']) ?>
+                <?= $this->Paginator->next(__('Siguiente') . ' >') ?>
+            </ul>
+            <p><?= $this->Paginator->counter() ?></p>
+        </div>
     </div>
 </div>

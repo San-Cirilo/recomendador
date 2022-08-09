@@ -1,33 +1,20 @@
-<?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\Paise $paise
- */
-?>
-<div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $paise->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $paise->id), 'class' => 'side-nav-item']
-            ) ?>
-            <?= $this->Html->link(__('List Paises'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+
+<div class="row justify-content-center">
+    <div class="col-md-6 col-6 col-md-offset-3">
+        <div class="page-header">
+            <h2>Crear Pais</h2>
         </div>
-    </aside>
-    <div class="column-responsive column-80">
-        <div class="paises form content">
-            <?= $this->Form->create($paise) ?>
-            <fieldset>
-                <legend><?= __('Edit Paise') ?></legend>
-                <?php
-                    echo $this->Form->control('nombre');
-                    echo $this->Form->control('bandera');
-                ?>
-            </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
-            <?= $this->Form->end() ?>
-        </div>
+        <hr>
+        <?= $this->Form->create($paise) ?>
+            <div class="form-group">
+                <label for="nombre">Nombre del Pais</label>
+                <?= $this->Form->input('nombre',['class'=>'form-control']); ?>
+                <label for="bandera">Bandera</label>
+                <?=$this->Form->input('bandera',['class'=>'form-control']);?>
+            </div>
+            <div class="button-group pt-3">
+                <?= $this->Form->button(__('Submit'),['class'=>'btn btn-primary']) ?>
+            </div>
+        <?= $this->Form->end() ?>
     </div>
 </div>

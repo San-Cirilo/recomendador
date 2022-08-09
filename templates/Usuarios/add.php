@@ -1,9 +1,3 @@
-<?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\SitioUsuario $sitioUsuario
- */
-?>
 
 <div class="row justify-content-center">
     <div class="col-md-6 col-6 col-md-offset-3">
@@ -24,7 +18,7 @@
                 ?>
             </div>
             <div class="button-group pt-3">
-                <?= $this->Form->button(__('Submit'),['class'=>'btn btn-primary']) ?>
+                <?= $this->Form->button(__('Guardar'),['class'=>'btn btn-primary']) ?>
             </div>
         <?= $this->Form->end() ?>
     </div>

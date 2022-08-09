@@ -18,6 +18,7 @@ class TiposerviciosController extends AppController
      */
     public function index()
     {
+        
         $tiposervicios = $this->paginate($this->Tiposervicios);
 
         $this->set(compact('tiposervicios'));
@@ -33,7 +34,7 @@ class TiposerviciosController extends AppController
     public function view($id = null)
     {
         $tiposervicio = $this->Tiposervicios->get($id, [
-            'contain' => ['Industrias', 'Productos'],
+            ''
         ]);
 
         $this->set(compact('tiposervicio'));
@@ -46,18 +47,19 @@ class TiposerviciosController extends AppController
      */
     public function add()
     {
+        
         $tiposervicio = $this->Tiposervicios->newEmptyEntity();
         if ($this->request->is('post')) {
             $tiposervicio = $this->Tiposervicios->patchEntity($tiposervicio, $this->request->getData());
             if ($this->Tiposervicios->save($tiposervicio)) {
-                $this->Flash->success(__('The tiposervicio has been saved.'));
+                $this->Flash->success(__('Se guardo correctamente.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The tiposervicio could not be saved. Please, try again.'));
+            $this->Flash->error(__('Ocurrio un Error Vuelva a intentarlo.'));
         }
-        $industrias = $this->Tiposervicios->Industrias->find('list', ['limit' => 200])->all();
-        $this->set(compact('tiposervicio', 'industrias'));
+        
+        $this->set(compact('tiposervicio'));
     }
 
     /**

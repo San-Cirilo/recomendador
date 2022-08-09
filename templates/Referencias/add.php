@@ -1,36 +1,25 @@
-<?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\Referencia $referencia
- * @var \Cake\Collection\CollectionInterface|string[] $productos
- * @var \Cake\Collection\CollectionInterface|string[] $usuarios
- * @var \Cake\Collection\CollectionInterface|string[] $estados
- * @var \Cake\Collection\CollectionInterface|string[] $prospectos
- */
-?>
-<div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('List Referencias'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+
+
+<div class="row justify-content-center">
+    <div class="col-md-6 col-6 col-md-offset-3">
+        <div class="page-header">
+            <h2>Crear Referencia</h2>
         </div>
-    </aside>
-    <div class="column-responsive column-80">
-        <div class="referencias form content">
-            <?= $this->Form->create($referencia) ?>
-            <fieldset>
-                <legend><?= __('Add Referencia') ?></legend>
-                <?php
-                    echo $this->Form->control('producto_id', ['options' => $productos]);
-                    echo $this->Form->control('usuario_id', ['options' => $usuarios]);
-                    echo $this->Form->control('estado_id', ['options' => $estados]);
-                    echo $this->Form->control('prospecto_id', ['options' => $prospectos]);
-                    echo $this->Form->control('cargo_contacto');
-                    echo $this->Form->control('relacion_contacto');
+        <hr>
+        <?= $this->Form->create($referencia) ?>
+            <div class="form-group">
+            <?php
+                    echo $this->Form->control('producto_id', ['options' => $productos , 'class' => 'form-control']);
+                    echo $this->Form->control('usuario_id', ['options' => $usuarios , 'class' => 'form-control']);
+                    echo $this->Form->control('estado_id', ['options' => $estados, 'class' => 'form-control']);
+                    echo $this->Form->control('prospecto_id', ['options' => $prospectos, 'class' => 'form-control']);
+                    echo $this->Form->control('cargo_contacto',['class'=>'form-control']);
+                    echo $this->Form->control('relacion_contacto',['class'=>'form-control']);
                 ?>
-            </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
-            <?= $this->Form->end() ?>
-        </div>
+            </div>
+            <div class="button-group pt-3">
+                <?= $this->Form->button(__('Guardar'),['class'=>'btn btn-primary']) ?>
+            </div>
+        <?= $this->Form->end() ?>
     </div>
 </div>

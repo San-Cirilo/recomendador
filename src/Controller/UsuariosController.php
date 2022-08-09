@@ -20,7 +20,8 @@ class UsuariosController extends AppController
 
     public function beforeFilter(EventInterface $event){
         parent::beforeFilter($event);
-        $this->Auth->allow(['login','home']);
+        // print_r($event);exit;
+        $this->Auth->allow(['/login','home']);
     }
 
     public function isAuthorized($usuario) {
@@ -131,6 +132,19 @@ class UsuariosController extends AppController
      */
     public function edit($id = null)
     {
+
+        $Perfil = $this->getTableLocator()->get('Perfiles');
+        $optPerfil =  $Perfil->find()->all()->combine('id','nombre');
+        foreach ($optPerfil as $index => $name) {
+            $optPerfiles[$index] = $name;
+        }
+
+        $Empresa = $this->getTableLocator()->get('Empresas');
+        $optEmpresa =  $Empresa->find()->all()->combine('id','razon_social');
+        foreach ($optEmpresa as $index => $name) {
+            $optEmpresas[$index] = $name;
+        }
+
         $Usuario = $this->Usuarios->get($id, [
             'contain' => [],
         ]);
@@ -145,7 +159,7 @@ class UsuariosController extends AppController
             }
             $this->Flash->error(__('The usuario could not be saved. Please, try again.'));
         }
-        $this->set(compact('Usuario'));
+        $this->set(compact('Usuario','optPerfiles','optEmpresas'));
     }
 
     /**

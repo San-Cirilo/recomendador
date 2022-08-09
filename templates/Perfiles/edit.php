@@ -1,32 +1,18 @@
-<?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\Perfile $perfile
- */
-?>
-<div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $perfile->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $perfile->id), 'class' => 'side-nav-item']
-            ) ?>
-            <?= $this->Html->link(__('List Perfiles'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+<div class="row justify-content-center">
+    <div class="col-md-6 col-6 col-md-offset-3">
+        <div class="page-header">
+            <h2>Editar Perfil</h2>
         </div>
-    </aside>
-    <div class="column-responsive column-80">
-        <div class="perfiles form content">
-            <?= $this->Form->create($perfile) ?>
-            <fieldset>
-                <legend><?= __('Edit Perfile') ?></legend>
+        <hr>
+        <?= $this->Form->create($perfile) ?>
+            <div class="form-group">
                 <?php
-                    echo $this->Form->control('nombre');
+                    echo $this->Form->control('nombre',['class' => 'form-control']);
                 ?>
-            </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
-            <?= $this->Form->end() ?>
-        </div>
+            </div>
+            <div class="button-group pt-3">
+                <?= $this->Form->button(__('Guardar'),['class'=>'btn btn-primary']) ?>
+            </div>
+        <?= $this->Form->end() ?>
     </div>
 </div>

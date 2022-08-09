@@ -81,6 +81,21 @@ class EmpresasController extends AppController
      */
     public function edit($id = null)
     {
+
+        $planes = $this->getTableLocator()->get('Planes');
+        $opt =  $planes->find()->all()->combine('id','nombre');
+        foreach ($opt as $index => $name) {
+            $optPlan[$index] = $name;
+        }
+        
+       
+        $paises = $this->getTableLocator()->get('Paises');
+        $optpaises =  $paises->find()->all()->combine('id','nombre');
+        foreach ($optpaises as $index => $name) {
+            $optPais[$index] = $name;
+        }
+        
+
         $empresa = $this->Empresas->get($id, [
             'contain' => [],
         ]);
@@ -93,7 +108,7 @@ class EmpresasController extends AppController
             }
             $this->Flash->error(__('The empresa could not be saved. Please, try again.'));
         }
-        $this->set(compact('empresa'));
+        $this->set(compact('empresa','optPlan','optPais'));
     }
 
     /**

@@ -2,7 +2,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="page-header">
-            <h2>Empresas</h2>
+            <h2>Estados</h2>
             <hr>
         </div>
         <div class="table-responsive">
@@ -26,7 +26,7 @@
                     <td class="actions">
                         <?= $this->Html->link('Ver', ['action' => 'view', $estado->id],['class' => 'btn btn-info btn-sm']) ?>
                         <?= $this->Html->link('Editar', ['action' => 'edit', $estado->id],['class' => 'btn btn-primary btn-sm']) ?>
-                        <?= $this->Form->postLink('Eliminar', ['action' => 'delete', $estado->id],['class' => 'btn btn-danger btn-sm'], ['confirm' => __('Eliminar Pais?', $estado->id)]) ?>
+                        <?= $this->Form->postLink('Eliminar', ['action' => 'delete', $estado->id],['class' => 'btn btn-danger btn-sm'], ['confirm' => __('Eliminar Estado?', $estado->id)]) ?>
                     </td>
                 </tr>
                 <?php endforeach; ?>

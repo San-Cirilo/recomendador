@@ -1,39 +1,25 @@
-<?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\SitioUsuario $sitioUsuario
- */
-?>
-<div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $Usuario->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $Usuario->id), 'class' => 'side-nav-item']
-            ) ?>
-            <?= $this->Html->link(__('List Sitio Usuarios'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+
+<div class="row justify-content-center">
+    <div class="col-md-6 col-6 col-md-offset-3">
+        <div class="page-header">
+            <h2>Editar Usuario</h2>
         </div>
-    </aside>
-    <div class="column-responsive column-80">
-        <div class="sitioUsuarios form content">
-            <?= $this->Form->create($Usuario) ?>
-            <fieldset>
-                <legend><?= __('Edit Sitio Usuario') ?></legend>
+        <hr>
+        <?= $this->Form->create($Usuario) ?>
+            <div class="form-group">
                 <?php
-                    echo $this->Form->control('perfil_id');
-                    echo $this->Form->control('empresa_id');
-                    echo $this->Form->control('nombres');
-                    echo $this->Form->control('apellidos');
-                    echo $this->Form->control('email');
-                    echo $this->Form->control('telefono');
-                    echo $this->Form->control('password');
-                    echo $this->Form->control('modifed');
+                    echo $this->Form->control('perfil_id',['options'=>$optPerfiles,'class'=>'form-control']);
+                    echo $this->Form->control('empresa_id',['options'=>$optEmpresas,'class'=>'form-control']);
+                    echo $this->Form->control('nombres',['class'=>'form-control']);
+                    echo $this->Form->control('apellidos',['class'=>'form-control']);
+                    echo $this->Form->control('email',['class'=>'form-control']);
+                    echo $this->Form->control('telefono',['class'=>'form-control']);
+                    echo $this->Form->control('password',['class'=>'form-control']);
                 ?>
-            </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
-            <?= $this->Form->end() ?>
-        </div>
+            </div>
+            <div class="button-group pt-3">
+                <?= $this->Form->button(__('Guardar'),['class'=>'btn btn-primary']) ?>
+            </div>
+        <?= $this->Form->end() ?>
     </div>
 </div>
