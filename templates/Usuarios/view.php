@@ -7,7 +7,7 @@
         <span><?=__('Id')?>: <?= $Usuario->id ?></span>   
     </p>
     <p class="card-text">
-        <span><?=__('Nombre')?>: <?= $Usuario->nombre ?></span>   
+        <span><?=__('Nombre')?>: <?= $Usuario->nombres ?></span>   
     </p>
     <p class="card-text">
         <span><?=__('Apellidos')?>: <?= $Usuario->apellidos ?></span>    

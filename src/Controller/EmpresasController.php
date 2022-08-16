@@ -18,7 +18,8 @@ class EmpresasController extends AppController
      */
     public function index()
     {
-        $empresas = $this->paginate($this->Empresas);
+        $option = $this->Empresas->find()->contain(['Planes','Paises']);
+        $empresas = $this->paginate($option);
 
         $this->set(compact('empresas'));
     }
@@ -46,18 +47,7 @@ class EmpresasController extends AppController
      */
     public function add()
     {
-        $planes = $this->getTableLocator()->get('Planes');
-        $opt =  $planes->find()->all()->combine('id','nombre');
-        foreach ($opt as $index => $name) {
-            $optPlan[$index] = $name;
-        }
         
-       
-        $paises = $this->getTableLocator()->get('Paises');
-        $optpaises =  $paises->find()->all()->combine('id','nombre');
-        foreach ($optpaises as $index => $name) {
-            $optPais[$index] = $name;
-        }
         
         $empresa = $this->Empresas->newEmptyEntity();
         if ($this->request->is('post')) {
@@ -69,6 +59,12 @@ class EmpresasController extends AppController
             }
             $this->Flash->error(__('No se pudo guardar.Intentelo nuevamente.'));
         }
+
+        $optPlan = $this->Empresas->Planes->find('list', ['limit' => 200])->all();
+        $optPais = $this->Empresas->Paises->find('list', ['limit' => 200])->all();
+
+
+
         $this->set(compact('empresa','optPlan','optPais'));
     }
 
@@ -82,19 +78,6 @@ class EmpresasController extends AppController
     public function edit($id = null)
     {
 
-        $planes = $this->getTableLocator()->get('Planes');
-        $opt =  $planes->find()->all()->combine('id','nombre');
-        foreach ($opt as $index => $name) {
-            $optPlan[$index] = $name;
-        }
-        
-       
-        $paises = $this->getTableLocator()->get('Paises');
-        $optpaises =  $paises->find()->all()->combine('id','nombre');
-        foreach ($optpaises as $index => $name) {
-            $optPais[$index] = $name;
-        }
-        
 
         $empresa = $this->Empresas->get($id, [
             'contain' => [],
@@ -108,6 +91,10 @@ class EmpresasController extends AppController
             }
             $this->Flash->error(__('The empresa could not be saved. Please, try again.'));
         }
+
+        $optPlan = $this->Empresas->Planes->find('list', ['limit' => 200])->all();
+        $optPais = $this->Empresas->Paises->find('list', ['limit' => 200])->all();
+
         $this->set(compact('empresa','optPlan','optPais'));
     }
 

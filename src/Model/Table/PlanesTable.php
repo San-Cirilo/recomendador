@@ -38,8 +38,13 @@ class PlanesTable extends Table
         parent::initialize($config);
 
         $this->setTable('planes');
-        $this->setDisplayField('id');
+        $this->setDisplayField('nombre');
         $this->setPrimaryKey('id');
+
+        $this->hasMany('Empresas',[
+            'foreignKey' => 'plan_id'
+        ]);
+        
     }
 
     /**

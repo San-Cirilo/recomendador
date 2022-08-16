@@ -25,8 +25,8 @@
                     <?php foreach ($Usuarios as $Usuario): ?>
                     <tr>
                         <td><?= $this->Number->format($Usuario->id) ?></td>
-                        <td><?= $this->Number->format($Usuario->perfil_id) ?></td>
-                        <td><?= $this->Number->format($Usuario->empresa_id) ?></td>
+                        <td><?= $Usuario->perfile->nombre?></td>
+                        <td><?= $Usuario->empresa->razon_social ?></td>
                         <td><?= h($Usuario->nombres) ?></td>
                         <td><?= h($Usuario->apellidos) ?></td>
                         <td><?= h($Usuario->email) ?></td>

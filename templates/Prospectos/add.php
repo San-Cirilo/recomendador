@@ -1,31 +1,23 @@
-<?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\Prospecto $prospecto
- * @var \Cake\Collection\CollectionInterface|string[] $industrias
- */
-?>
-<div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('List Prospectos'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+
+
+<div class="row justify-content-center">
+    <div class="col-md-6 col-6 col-md-offset-3">
+        <div class="page-header">
+            <h2>Crear Prospecto</h2>
         </div>
-    </aside>
-    <div class="column-responsive column-80">
-        <div class="prospectos form content">
-            <?= $this->Form->create($prospecto) ?>
-            <fieldset>
-                <legend><?= __('Add Prospecto') ?></legend>
-                <?php
-                    echo $this->Form->control('industria_id', ['options' => $industrias]);
-                    echo $this->Form->control('pais_id');
-                    echo $this->Form->control('nombre');
-                    echo $this->Form->control('descripcion');
+        <hr>
+        <?= $this->Form->create($prospecto) ?>
+            <div class="form-group">
+            <?php
+                    echo $this->Form->control('industria_id', ['class'=>'form-control','options' => $industrias]);
+                    echo $this->Form->control('pais_id',['class'=>'form-control','options' => $paises]);
+                    echo $this->Form->control('nombre',['class' => 'form-control']);
+                    echo $this->Form->control('descripcion',['class' => 'form-control']);
                 ?>
-            </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
-            <?= $this->Form->end() ?>
-        </div>
+            </div>
+            <div class="button-group pt-3 pb-3">
+                <?= $this->Form->button(__('Guardar'),['class'=>'btn btn-primary']) ?>
+            </div>
+        <?= $this->Form->end() ?>
     </div>
 </div>

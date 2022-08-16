@@ -19,7 +19,7 @@ class ProspectosController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Industrias'],
+            'contain' => ['Industrias','Paises'],
         ];
         $prospectos = $this->paginate($this->Prospectos);
 
@@ -60,7 +60,8 @@ class ProspectosController extends AppController
             $this->Flash->error(__('The prospecto could not be saved. Please, try again.'));
         }
         $industrias = $this->Prospectos->Industrias->find('list', ['limit' => 200])->all();
-        $this->set(compact('prospecto', 'industrias'));
+        $paises = $this->Prospectos->Paises->find('list', ['limit' => 200])->all();
+        $this->set(compact('prospecto', 'industrias','paises'));
     }
 
     /**

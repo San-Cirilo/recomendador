@@ -40,10 +40,14 @@ class PerfilesTable extends Table
         parent::initialize($config);
 
         $this->setTable('perfiles');
-        $this->setDisplayField('id');
+        $this->setDisplayField('nombre');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+
+        $this->hasMany('Usuarios',[
+            'foreignKey' => 'category_id'
+        ]);
     }
 
     /**

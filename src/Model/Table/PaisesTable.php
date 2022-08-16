@@ -38,8 +38,15 @@ class PaisesTable extends Table
         parent::initialize($config);
 
         $this->setTable('paises');
-        $this->setDisplayField('id');
+        $this->setDisplayField('nombre');
         $this->setPrimaryKey('id');
+
+        $this->hasMany('Empresas',[
+            'foreignKey' => 'pais_id'
+        ]);
+        $this->hasMany('Prospectos',[
+            'foreignKey' => 'pais_id'
+        ]);
     }
 
     /**

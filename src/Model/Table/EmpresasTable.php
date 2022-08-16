@@ -43,10 +43,20 @@ class EmpresasTable extends Table
         parent::initialize($config);
 
         $this->setTable('empresas');
-        $this->setDisplayField('id');
+        $this->setDisplayField('razon_social');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+
+
+        $this->belongsTo('Planes',[
+            'foreignKey' => 'plan_id',
+            'joinType' =>'INNER'
+        ]);
+        $this->belongsTo('Paises',[
+            'foreignKey' => 'pais_id',
+            'joinType' =>'INNER'
+        ]);
 
         $this->hasMany('Productos', [
             'foreignKey' => 'empresa_id',
@@ -54,6 +64,8 @@ class EmpresasTable extends Table
         $this->hasMany('Usuarios', [
             'foreignKey' => 'empresa_id',
         ]);
+
+        
     }
 
     /**

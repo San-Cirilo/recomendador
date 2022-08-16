@@ -12,14 +12,14 @@
                 <thead>
                 <tr>
                     <th><?= $this->Paginator->sort('id') ?></th>
-                    <th><?= $this->Paginator->sort('plan_id') ?></th>
+                    <th><?= $this->Paginator->sort('plan_id',['Plan']) ?></th>
                     <th><?= $this->Paginator->sort('razon_social') ?></th>
                     <th><?= $this->Paginator->sort('cedula') ?></th>
                     <th><?= $this->Paginator->sort('nombre_contacto') ?></th>
                     <th><?= $this->Paginator->sort('email_contacto') ?></th>
                     <th><?= $this->Paginator->sort('telefono_contacto') ?></th>
                     <th><?= $this->Paginator->sort('usuario') ?></th>
-                    <th><?= $this->Paginator->sort('pais_id') ?></th>
+                    <th><?= $this->Paginator->sort('pais_id',['Pais']) ?></th>
                     <th><?= $this->Paginator->sort('direccion') ?></th>
                     <th><?= $this->Paginator->sort('ciudad') ?></th>
                     <th><?= $this->Paginator->sort('telefono') ?></th>
@@ -33,14 +33,14 @@
                     <?php foreach ($empresas as $empresa): ?>
                         <tr>
                             <td><?= $this->Number->format($empresa->id) ?></td>
-                            <td><?= $this->Number->format($empresa->plan_id) ?></td>
+                            <td><?= $empresa->plane->nombre ?></td>
                             <td><?= h($empresa->razon_social) ?></td>
                             <td><?= h($empresa->cedula) ?></td>
                             <td><?= h($empresa->nombre_contacto) ?></td>
                             <td><?= h($empresa->email_contacto) ?></td>
                             <td><?= h($empresa->telefono_contacto) ?></td>
                             <td><?= h($empresa->usuario) ?></td>
-                            <td><?= $this->Number->format($empresa->pais_id) ?></td>
+                            <td><?= $empresa->paise->nombre ?></td>
                             <td><?= h($empresa->direccion) ?></td>
                             <td><?= h($empresa->ciudad) ?></td>
                             <td><?= h($empresa->telefono) ?></td>

@@ -44,13 +44,17 @@ class ProspectosTable extends Table
         parent::initialize($config);
 
         $this->setTable('prospectos');
-        $this->setDisplayField('id');
+        $this->setDisplayField('nombre');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
 
         $this->belongsTo('Industrias', [
             'foreignKey' => 'industria_id',
+            'joinType' => 'INNER',
+        ]);
+        $this->belongsTo('Paises', [
+            'foreignKey' => 'pais_id',
             'joinType' => 'INNER',
         ]);
         $this->hasMany('Referencias', [

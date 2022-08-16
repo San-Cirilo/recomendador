@@ -40,10 +40,21 @@ class UsuariosTable extends Table
         parent::initialize($config);
 
         $this->setTable('usuarios');
-        $this->setDisplayField('id');
+        $this->setDisplayField('nombres');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+
+        $this->belongsTo('Perfiles',[
+            'foreignKey' => 'perfil_id',
+            'joinType' =>'INNER'
+        ]);
+
+        $this->belongsTo('Empresas',[
+            'foreignKey' => 'empresa_id',
+            'joinType' =>'INNER'
+        ]);
+            
     }
 
     /**

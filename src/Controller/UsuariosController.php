@@ -67,8 +67,18 @@ class UsuariosController extends AppController
 
     public function index()
     {
-        $Usuarios = $this->paginate($this->Usuarios);
+        $options = $this->Usuarios->find()
+        ->contain(
+            [
+                'Perfiles',
+                'Empresas'
+            ]
+            );
+        
+    
 
+        $Usuarios = $this->paginate($options);
+       
         $this->set(compact('Usuarios'));
     }
 
