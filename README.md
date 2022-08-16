@@ -1,53 +1,34 @@
-# CakePHP Application Skeleton
+# Recomendador
 
-![Build Status](https://github.com/cakephp/app/actions/workflows/ci.yml/badge.svg?branch=master)
-[![Total Downloads](https://img.shields.io/packagist/dt/cakephp/app.svg?style=flat-square)](https://packagist.org/packages/cakephp/app)
-[![PHPStan](https://img.shields.io/badge/PHPStan-level%207-brightgreen.svg?style=flat-square)](https://github.com/phpstan/phpstan)
+## Descripcion
 
-A skeleton for creating applications with [CakePHP](https://cakephp.org) 4.x.
+Este proyecto se encuentro en desarrollo, está enfocado principalmente para un fin de comenzar a encontrar una forma de poder contactar con mas personas en el rubro más solicitado.
 
-The framework source code can be found here: [cakephp/cakephp](https://github.com/cakephp/cakephp).
+## Requisitos
 
-## Installation
+ - CakePhp 4.X
+ - Php 8.x
+ - Composer 
+ - Base de datos sql (PhpMyAdmin 5.2)
 
-1. Download [Composer](https://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
-2. Run `php composer.phar create-project --prefer-dist cakephp/app [app_name]`.
+ ## Instrucciones
 
-If Composer is installed globally, run
+  - Clonar el proyecto "**Recomendador**".
+  - Cargar la Base de datos.
+  - Abrir terminal y ejecutar **Composer** y **Composer install**
+  - Ejecutamos el comando "**bin\cake server**" (por defecto usara el puerto 8765 si presentara algun error podria cambiarlo con el comando "**bin\cake server -p PORT**")
 
-```bash
-composer create-project --prefer-dist cakephp/app
-```
+  ## Lista
 
-In case you want to use a custom app dir name (e.g. `/myapp/`):
+  - Login.
+  - Sessions.
+  - Mantenedores de todas las tablas.
+  - Instalacion de Bootstrap.
+  - Estructura básica con Bootstrap.
+  
+  # Pendientes
 
-```bash
-composer create-project --prefer-dist cakephp/app myapp
-```
+  - Estructura de los VIEWS de los mantenedores.
+  - Mejorar interaccion.
+  - Ordenar Codigo.
 
-You can now either use your machine's webserver to view the default home page, or start
-up the built-in webserver with:
-
-```bash
-bin/cake server -p 8765
-```
-
-Then visit `http://localhost:8765` to see the welcome page.
-
-## Update
-
-Since this skeleton is a starting point for your application and various files
-would have been modified as per your needs, there isn't a way to provide
-automated upgrades, so you have to do any updates manually.
-
-## Configuration
-
-Read and edit the environment specific `config/app_local.php` and setup the 
-`'Datasources'` and any other configuration relevant for your application.
-Other environment agnostic settings can be changed in `config/app.php`.
-
-## Layout
-
-The app skeleton uses [Milligram](https://milligram.io/) (v1.3) minimalist CSS
-framework by default. You can, however, replace it with any other library or
-custom styles.
