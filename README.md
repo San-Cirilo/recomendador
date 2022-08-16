@@ -2,7 +2,7 @@
 
 ## Descripcion
 
-Este proyecto se encuentro en desarrollo, está enfocado principalmente para un fin de comenzar a encontrar una forma de poder contactar con mas personas en el rubro más solicitado.
+Este proyecto se encuentra en desarrollo, está enfocado principalmente para un fin de comenzar a encontrar una forma de poder contactar con más personas en el rubro más solicitado.
 
 ## Requisitos
 
@@ -26,7 +26,7 @@ Este proyecto se encuentro en desarrollo, está enfocado principalmente para un 
   - Instalacion de Bootstrap.
   - Estructura básica con Bootstrap.
   
-  # Pendientes
+  ## Pendientes
 
   - Estructura de los VIEWS de los mantenedores.
   - Mejorar interaccion.
