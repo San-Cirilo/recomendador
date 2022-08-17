@@ -19,10 +19,10 @@
         <span><?=__('Telefono')?>: <?= $Usuario->telefono ?></span>    
     </p>
     <p class="card-text">
-        <span><?=__('Perfil')?>: <?= $Usuario->perfil_id ?></span>   
+        <span><?=__('Perfil')?>: <?= $Usuario->perfile->nombre ?></span>   
     </p>
     <p class="card-text">
-        <span><?=__('Empresa')?>: <?= $Usuario->empresa_id ?></span>   
+        <span><?=__('Empresa')?>: <?= $Usuario->empresa->razon_social ?></span>   
     </p>
     <p class="card-text">
         <span><?=__('Fecha')?>: <?= $Usuario->created ?></span>   

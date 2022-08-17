@@ -92,7 +92,7 @@ class UsuariosController extends AppController
     public function view($id = null)
     {
         $Usuario = $this->Usuarios->get($id, [
-            'contain' => [],
+            'contain' => ['Empresas','Perfiles'],
         ]);
 
         $this->set(compact('Usuario'));

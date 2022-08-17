@@ -39,8 +39,8 @@
                     <td><?= h($empresa->telefono_contacto) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Usuario') ?></th>
-                    <td><?= h($empresa->usuario) ?></td>
+                    <th><?= __('empresa') ?></th>
+                    <td><?= h($empresa->empresa) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Direccion') ?></th>
@@ -119,8 +119,8 @@
                 <?php endif; ?>
             </div>
             <div class="related">
-                <h4><?= __('Related Usuarios') ?></h4>
-                <?php if (!empty($empresa->usuarios)) : ?>
+                <h4><?= __('Related empresas') ?></h4>
+                <?php if (!empty($empresa->empresas)) : ?>
                 <div class="table-responsive">
                     <table>
                         <tr>
@@ -136,22 +136,22 @@
                             <th><?= __('Modifed') ?></th>
                             <th class="actions"><?= __('Actions') ?></th>
                         </tr>
-                        <?php foreach ($empresa->usuarios as $usuarios) : ?>
+                        <?php foreach ($empresa->empresas as $empresas) : ?>
                         <tr>
-                            <td><?= h($usuarios->id) ?></td>
-                            <td><?= h($usuarios->perfil_id) ?></td>
-                            <td><?= h($usuarios->empresa_id) ?></td>
-                            <td><?= h($usuarios->nombres) ?></td>
-                            <td><?= h($usuarios->apellidos) ?></td>
-                            <td><?= h($usuarios->email) ?></td>
-                            <td><?= h($usuarios->telefono) ?></td>
-                            <td><?= h($usuarios->password) ?></td>
-                            <td><?= h($usuarios->created) ?></td>
-                            <td><?= h($usuarios->modifed) ?></td>
+                            <td><?= h($empresas->id) ?></td>
+                            <td><?= h($empresas->perfil_id) ?></td>
+                            <td><?= h($empresas->empresa_id) ?></td>
+                            <td><?= h($empresas->nombres) ?></td>
+                            <td><?= h($empresas->apellidos) ?></td>
+                            <td><?= h($empresas->email) ?></td>
+                            <td><?= h($empresas->telefono) ?></td>
+                            <td><?= h($empresas->password) ?></td>
+                            <td><?= h($empresas->created) ?></td>
+                            <td><?= h($empresas->modifed) ?></td>
                             <td class="actions">
-                                <?= $this->Html->link(__('View'), ['controller' => 'Usuarios', 'action' => 'view', $usuarios->id]) ?>
-                                <?= $this->Html->link(__('Edit'), ['controller' => 'Usuarios', 'action' => 'edit', $usuarios->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Usuarios', 'action' => 'delete', $usuarios->id], ['confirm' => __('Are you sure you want to delete # {0}?', $usuarios->id)]) ?>
+                                <?= $this->Html->link(__('View'), ['controller' => 'empresas', 'action' => 'view', $empresas->id]) ?>
+                                <?= $this->Html->link(__('Edit'), ['controller' => 'empresas', 'action' => 'edit', $empresas->id]) ?>
+                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'empresas', 'action' => 'delete', $empresas->id], ['confirm' => __('Are you sure you want to delete # {0}?', $empresas->id)]) ?>
                             </td>
                         </tr>
                         <?php endforeach; ?>
@@ -161,4 +161,46 @@
             </div>
         </div>
     </div>
+</div>
+
+<div class="card">
+  <h5 class="card-header">#<?= $empresa->id ?></h5>
+  <div class="card-body">
+    <h5 class="card-title">Información</h5>
+    <p class="card-text">
+        <span><?=__('Id')?>: <?= $empresa->id ?></span>   
+    </p>
+    <p class="card-text">
+        <span><?=__('Razon Social')?>: <?= $empresa->razon_social ?></span>   
+    </p>
+    <p class="card-text">
+        <span><?=__('Cedula')?>: <?= $empresa->cedula ?></span>    
+    </p>
+    <p class="card-text">
+        <span><?=__('Nombre contacto')?>: <?= $empresa->nombre_contacto ?></span>    
+    </p>
+    <p class="card-text">
+        <span><?=__('Email Contacto')?>: <?= $empresa->email_contacto ?></span>    
+    </p>
+    <p class="card-text">
+        <span><?=__('Direccion')?>: <?= $empresa->direccion ?></span>   
+    </p>
+    <p class="card-text">
+        <span><?=__('Empresa')?>: <?= $empresa->empresa ?></span>   
+    </p>
+    <p class="card-text">
+        <span><?=__('Ciudad')?>: <?= $empresa->ciudad ?></span>   
+    </p>
+    <p class="card-text">
+        <span><?=__('Telefono')?>: <?= $empresa->telefono ?></span>   
+    </p>
+    <p class="card-text">
+        <span><?=__('Ciudad')?>: <?= $empresa->ciudad ?></span>   
+    </p>
+    <p class="card-text">
+        <span><?=__('Fecha')?>: <?= $empresa->created ?></span>   
+    </p>
+    <?= $this->html->link('Aceptar',['controller' => 'empresas','action'=>'index'],['class'=>'btn btn-primary']) ?>
+    <?= $this->html->link('Editar',['controller' => 'empresas','action'=>'edit', $empresa->id],['class'=>'btn btn-primary']) ?>
+  </div>
 </div>
