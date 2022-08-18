@@ -13,7 +13,7 @@
                 <?=$this->Form->input('bandera',['class'=>'form-control']);?>
             </div>
             <div class="button-group pt-3">
-                <?= $this->Form->button(__('Submit'),['class'=>'btn btn-primary']) ?>
+                <?= $this->Form->button(__('Guardar'),['class'=>'btn btn-primary']) ?>
             </div>
         <?= $this->Form->end() ?>
     </div>

@@ -24,11 +24,11 @@
                 <?php foreach ($prospectos as $prospecto): ?>
                 <tr>
                     <td><?= $this->Number->format($prospecto->id) ?></td>
-                    <td><?= $prospecto->has('industria') ? $this->Html->link($prospecto->industria->id, ['controller' => 'Industrias', 'action' => 'view', $prospecto->industria->id]) : '' ?></td>
-                    <td><?= $this->Number->format($prospecto->pais_id) ?></td>
+                    <td><?= $prospecto->has('industria') ? $this->Html->link($prospecto->industria->nombre, ['controller' => 'Industrias', 'action' => 'view', $prospecto->industria->id]) : '' ?></td>
+                    <td><?= h($prospecto->paise->nombre) ?></td>
                     <td><?= h($prospecto->nombre) ?></td>
-                    <td><?= h($prospecto->created) ?></td>
-                    <td><?= h($prospecto->modified) ?></td>
+                    <td><?= h(date_format($prospecto->created, 'd-m-Y')) ?></td>
+                    <td><?= h(date_format($prospecto->modified, 'd-m-Y')) ?></td>
                     <td class="actions">
                         <?= $this->Html->link('Ver', ['action' => 'view', $prospecto->id],['class' => 'btn btn-info btn-sm']) ?>
                         <?= $this->Html->link('Editar', ['action' => 'edit', $prospecto->id],['class' => 'btn btn-primary btn-sm']) ?>

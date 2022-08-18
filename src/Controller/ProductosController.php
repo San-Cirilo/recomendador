@@ -53,11 +53,11 @@ class ProductosController extends AppController
         if ($this->request->is('post')) {
             $producto = $this->Productos->patchEntity($producto, $this->request->getData());
             if ($this->Productos->save($producto)) {
-                $this->Flash->success(__('The producto has been saved.'));
+                $this->Flash->success(__('Se Guardo Exitosamente.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The producto could not be saved. Please, try again.'));
+            $this->Flash->error(__('Ocurrio un problema. Intentelo de nuevo.'));
         }
         $empresas = $this->Productos->Empresas->find('list', ['limit' => 200])->all();
         $tiposervicios = $this->Productos->Tiposervicios->find('list', ['limit' => 200])->all();
@@ -79,11 +79,11 @@ class ProductosController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $producto = $this->Productos->patchEntity($producto, $this->request->getData());
             if ($this->Productos->save($producto)) {
-                $this->Flash->success(__('The producto has been saved.'));
+                $this->Flash->success(__('Se Guardo Exitosamente.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The producto could not be saved. Please, try again.'));
+            $this->Flash->error(__('Ocurrio un problema. Intentelo de nuevo.'));
         }
         $empresas = $this->Productos->Empresas->find('list', ['limit' => 200])->all();
         $tiposervicios = $this->Productos->Tiposervicios->find('list', ['limit' => 200])->all();

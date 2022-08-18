@@ -53,11 +53,11 @@ class ReferenciasController extends AppController
         if ($this->request->is('post')) {
             $referencia = $this->Referencias->patchEntity($referencia, $this->request->getData());
             if ($this->Referencias->save($referencia)) {
-                $this->Flash->success(__('The referencia has been saved.'));
+                $this->Flash->success(__('Se Guardo Exitosamente.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The referencia could not be saved. Please, try again.'));
+            $this->Flash->error(__('Ocurrio un problema. Intentelo de nuevo.'));
         }
         $productos = $this->Referencias->Productos->find('list', ['limit' => 200])->all();
         $usuarios = $this->Referencias->Usuarios->find('list', ['limit' => 200])->all();
@@ -81,11 +81,11 @@ class ReferenciasController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $referencia = $this->Referencias->patchEntity($referencia, $this->request->getData());
             if ($this->Referencias->save($referencia)) {
-                $this->Flash->success(__('The referencia has been saved.'));
+                $this->Flash->success(__('Se Guardo Exitosamente.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The referencia could not be saved. Please, try again.'));
+            $this->Flash->error(__('Ocurrio un problema. Intentelo de nuevo.'));
         }
         $productos = $this->Referencias->Productos->find('list', ['limit' => 200])->all();
         $usuarios = $this->Referencias->Usuarios->find('list', ['limit' => 200])->all();

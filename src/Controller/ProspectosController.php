@@ -36,7 +36,7 @@ class ProspectosController extends AppController
     public function view($id = null)
     {
         $prospecto = $this->Prospectos->get($id, [
-            'contain' => ['Industrias', 'Referencias', 'Solicitudes'],
+            'contain' => ['Paises','Industrias', 'Referencias', 'Solicitudes'],
         ]);
 
         $this->set(compact('prospecto'));
@@ -53,11 +53,11 @@ class ProspectosController extends AppController
         if ($this->request->is('post')) {
             $prospecto = $this->Prospectos->patchEntity($prospecto, $this->request->getData());
             if ($this->Prospectos->save($prospecto)) {
-                $this->Flash->success(__('The prospecto has been saved.'));
+                $this->Flash->success(__('Se Guardo Exitosamente.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The prospecto could not be saved. Please, try again.'));
+            $this->Flash->error(__('Ocurrio un problema. Intentelo de nuevo.'));
         }
         $industrias = $this->Prospectos->Industrias->find('list', ['limit' => 200])->all();
         $paises = $this->Prospectos->Paises->find('list', ['limit' => 200])->all();
@@ -79,11 +79,11 @@ class ProspectosController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $prospecto = $this->Prospectos->patchEntity($prospecto, $this->request->getData());
             if ($this->Prospectos->save($prospecto)) {
-                $this->Flash->success(__('The prospecto has been saved.'));
+                $this->Flash->success(__('Se Guardo Exitosamente.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The prospecto could not be saved. Please, try again.'));
+            $this->Flash->error(__('Ocurrio un problema. Intentelo de nuevo.'));
         }
         $industrias = $this->Prospectos->Industrias->find('list', ['limit' => 200])->all();
         $this->set(compact('prospecto', 'industrias'));

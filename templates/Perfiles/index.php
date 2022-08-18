@@ -21,7 +21,7 @@
                     <tr>
                         <td><?= $this->Number->format($perfile->id) ?></td>
                         <td><?= h($perfile->nombre) ?></td>
-                        <td><?= h($perfile->created) ?></td>
+                        <td><?= h(date_format($perfile->created, 'd-m-Y')) ?></td>
                         <td class="actions">
                             <?= $this->Html->link('Ver', ['action' => 'view', $perfile->id],['class' => 'btn btn-info btn-sm']) ?>
                             <?= $this->Html->link('Editar', ['action' => 'edit', $perfile->id],['class' => 'btn btn-primary btn-sm']) ?>

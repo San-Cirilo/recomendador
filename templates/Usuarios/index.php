@@ -16,8 +16,8 @@
                     <th><?= $this->Paginator->sort('apellidos') ?></th>
                     <th><?= $this->Paginator->sort('email') ?></th>
                     <th><?= $this->Paginator->sort('telefono') ?></th>
-                    <th><?= $this->Paginator->sort('created') ?></th>
-                    <th><?= $this->Paginator->sort('modifed') ?></th>
+                    <th><?= $this->Paginator->sort('created',['Creado']) ?></th>
+                    <th><?= $this->Paginator->sort('modified',['Modificado']) ?></th>
                     <th class="actions"><?= __('Acciones') ?></th>
                 </tr>
                 </thead>
@@ -31,7 +31,7 @@
                         <td><?= h($Usuario->apellidos) ?></td>
                         <td><?= h($Usuario->email) ?></td>
                         <td><?= h($Usuario->telefono) ?></td>
-                        <td><?= h($Usuario->created) ?></td>
+                        <td><?= h(date_format($Usuario->created, 'd-m-Y')) ?></td>
                         <td><?= h($Usuario->modifed) ?></td>
                         <td class="actions">
                             <?= $this->Html->link('Ver', ['action' => 'view', $Usuario->id],['class' => 'btn btn-info btn-sm']) ?>

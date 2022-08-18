@@ -21,7 +21,7 @@
                 <tr>
                     <td><?= $this->Number->format($tiposervicio->id) ?></td>
                     <td><?= h($tiposervicio->nombre) ?></td>
-                    <td><?= h($tiposervicio->created) ?></td>
+                    <td><?= h(date_format($tiposervicio->created,'d-m-Y')) ?></td>
                     <td class="actions">
                         <?= $this->Html->link('Ver', ['action' => 'view', $tiposervicio->id],['class' => 'btn btn-info btn-sm']) ?>
                         <?= $this->Html->link('Editar', ['action' => 'edit', $tiposervicio->id],['class' => 'btn btn-primary btn-sm']) ?>

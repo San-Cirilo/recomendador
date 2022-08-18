@@ -50,11 +50,11 @@ class PaisesController extends AppController
         if ($this->request->is('post')) {
             $paise = $this->Paises->patchEntity($paise, $this->request->getData());
             if ($this->Paises->save($paise)) {
-                $this->Flash->success(__('The paise has been saved.'));
+                $this->Flash->success(__('Se Guardo Exitosamente.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The paise could not be saved. Please, try again.'));
+            $this->Flash->error(__('Ocurrio un problema. Intentelo de nuevo.'));
         }
         $this->set(compact('paise'));
     }
@@ -74,11 +74,11 @@ class PaisesController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $paise = $this->Paises->patchEntity($paise, $this->request->getData());
             if ($this->Paises->save($paise)) {
-                $this->Flash->success(__('The paise has been saved.'));
+                $this->Flash->success(__('Se Guardo Exitosamente.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The paise could not be saved. Please, try again.'));
+            $this->Flash->error(__('Ocurrio un problema. Intentelo de nuevo.'));
         }
         $this->set(compact('paise'));
     }

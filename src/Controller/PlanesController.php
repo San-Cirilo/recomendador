@@ -50,11 +50,11 @@ class PlanesController extends AppController
         if ($this->request->is('post')) {
             $plane = $this->Planes->patchEntity($plane, $this->request->getData());
             if ($this->Planes->save($plane)) {
-                $this->Flash->success(__('The plane has been saved.'));
+                $this->Flash->success(__('Se Guardo Exitosamente.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The plane could not be saved. Please, try again.'));
+            $this->Flash->error(__('Ocurrio un problema. Intentelo de nuevo.'));
         }
         $this->set(compact('plane'));
     }
@@ -74,11 +74,11 @@ class PlanesController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $plane = $this->Planes->patchEntity($plane, $this->request->getData());
             if ($this->Planes->save($plane)) {
-                $this->Flash->success(__('The plane has been saved.'));
+                $this->Flash->success(__('Se Guardo Exitosamente.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The plane could not be saved. Please, try again.'));
+            $this->Flash->error(__('Ocurrio un problema. Intentelo de nuevo.'));
         }
         $this->set(compact('plane'));
     }

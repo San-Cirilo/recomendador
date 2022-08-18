@@ -1,52 +1,33 @@
-<?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\Referencia $referencia
- */
-?>
-<div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('Edit Referencia'), ['action' => 'edit', $referencia->id], ['class' => 'side-nav-item']) ?>
-            <?= $this->Form->postLink(__('Delete Referencia'), ['action' => 'delete', $referencia->id], ['confirm' => __('Are you sure you want to delete # {0}?', $referencia->id), 'class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('List Referencias'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('New Referencia'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
-        </div>
-    </aside>
-    <div class="column-responsive column-80">
-        <div class="referencias view content">
-            <h3><?= h($referencia->id) ?></h3>
-            <table>
-                <tr>
-                    <th><?= __('Producto') ?></th>
-                    <td><?= $referencia->has('producto') ? $this->Html->link($referencia->producto->id, ['controller' => 'Productos', 'action' => 'view', $referencia->producto->id]) : '' ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Usuario') ?></th>
-                    <td><?= $referencia->has('usuario') ? $this->Html->link($referencia->usuario->id, ['controller' => 'Usuarios', 'action' => 'view', $referencia->usuario->id]) : '' ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Estado') ?></th>
-                    <td><?= $referencia->has('estado') ? $this->Html->link($referencia->estado->id, ['controller' => 'Estados', 'action' => 'view', $referencia->estado->id]) : '' ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Prospecto') ?></th>
-                    <td><?= $referencia->has('prospecto') ? $this->Html->link($referencia->prospecto->id, ['controller' => 'Prospectos', 'action' => 'view', $referencia->prospecto->id]) : '' ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Cargo Contacto') ?></th>
-                    <td><?= h($referencia->cargo_contacto) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Relacion Contacto') ?></th>
-                    <td><?= h($referencia->relacion_contacto) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Id') ?></th>
-                    <td><?= $this->Number->format($referencia->id) ?></td>
-                </tr>
-            </table>
-        </div>
-    </div>
+
+
+<div class="card">
+  <h5 class="card-header">#<?= $referencia->id ?></h5>
+  <div class="card-body">
+    <h5 class="card-title">Información</h5>
+    <p class="card-text">
+        <span><?=__('Id')?>: <?= $referencia->id ?></span>   
+    </p>
+    <p class="card-text">
+        <span><?=__('Producto')?>: <?= $referencia->has('producto') ? $this->Html->link($referencia->producto->nombre, ['controller' => 'Productos', 'action' => 'view', $referencia->producto->id]) : '' ?> </span>   
+    </p>
+    <p class="card-text">
+        <span><?=__('Usuario')?>: <?= $referencia->usuario->nombres ?></span>   
+    </p>
+    
+    <p class="card-text">
+        <span><?=__('Estado')?>: <?= $referencia->estado->nombre ?></span>   
+    </p>
+    <p class="card-text">
+        <span><?=__('Cargo Contacto')?>: <?= $referencia->cargo_contacto ?></span>   
+    </p>
+    <p class="card-text">
+        <span><?=__('Relacion Contacto')?>: <?= $referencia->relacion_contacto ?></span>    
+    </p>
+    
+    <p class="card-text">
+        <span><?=__('Fecha')?>: <?= date_format($referencia->created , 'd-m-Y') ?></span>   
+    </p>
+    <?= $this->html->link('Aceptar',['controller' => 'referencias','action'=>'index'],['class'=>'btn btn-primary']) ?>
+    <?= $this->html->link('Editar',['controller' => 'referencias','action'=>'edit', $referencia->id],['class'=>'btn btn-primary']) ?>
+  </div>
 </div>

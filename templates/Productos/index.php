@@ -25,13 +25,13 @@
                 <?php foreach ($productos as $producto): ?>
                 <tr>
                     <td><?= $this->Number->format($producto->id) ?></td>
-                    <td><?= $producto->has('empresa') ? $this->Html->link($producto->empresa->id, ['controller' => 'Empresas', 'action' => 'view', $producto->empresa->id]) : '' ?></td>
-                    <td><?= $producto->has('tiposervicio') ? $this->Html->link($producto->tiposervicio->id, ['controller' => 'Tiposervicios', 'action' => 'view', $producto->tiposervicio->id]) : '' ?></td>
+                    <td><?= $producto->has('empresa') ? $this->Html->link($producto->empresa->razon_social, ['controller' => 'Empresas', 'action' => 'view', $producto->empresa->id]) : '' ?></td>
+                    <td><?= $producto->has('tiposervicio') ? $this->Html->link($producto->tiposervicio->nombre, ['controller' => 'Tiposervicios', 'action' => 'view', $producto->tiposervicio->id]) : '' ?></td>
                     <td><?= h($producto->nombre) ?></td>
                     <td><?= $this->Number->format($producto->precio_promedio) ?></td>
                     <td><?= h($producto->modelo_servicio) ?></td>
-                    <td><?= h($producto->created) ?></td>
-                    <td><?= h($producto->modified) ?></td>
+                    <td><?= h(date_format($producto->created,'d-m-Y')) ?></td>
+                    <td><?= h(date_format($producto->modified,'d-m-Y')) ?></td>
                     <td class="actions">
                         <?= $this->Html->link('Ver', ['action' => 'view', $producto->id],['class' => 'btn btn-info btn-sm']) ?>
                         <?= $this->Html->link('Editar', ['action' => 'edit', $producto->id],['class' => 'btn btn-primary btn-sm']) ?>

@@ -21,8 +21,8 @@
                         <tr>
                             <td><?= $this->Number->format($industria->id) ?></td>
                             <td><?= h($industria->nombre) ?></td>
-                            <td><?= h($industria->created) ?></td>
-                            <td><?= h($industria->modified) ?></td>
+                            <td><?= h(date_format($industria->created, 'd-m-Y')) ?></td>
+                            <td><?= h(date_format($industria->modified, 'd-m-Y')) ?></td>
                             <td class="actions">
                             <?= $this->Html->link('Ver', ['action' => 'view', $industria->id],['class' => 'btn btn-info btn-sm']) ?>
                             <?= $this->Html->link('Editar', ['action' => 'edit', $industria->id],['class' => 'btn btn-primary btn-sm']) ?>

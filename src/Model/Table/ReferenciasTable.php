@@ -104,6 +104,12 @@ class ReferenciasTable extends Table
             ->requirePresence('relacion_contacto', 'create')
             ->notEmptyString('relacion_contacto');
 
+        $validator
+            ->scalar('detalle')
+            ->maxLength('detalle', 200)
+            ->requirePresence('detalle', 'create')
+            ->notEmptyString('detalle');
+
         return $validator;
     }
 

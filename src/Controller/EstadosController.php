@@ -50,11 +50,11 @@ class EstadosController extends AppController
         if ($this->request->is('post')) {
             $estado = $this->Estados->patchEntity($estado, $this->request->getData());
             if ($this->Estados->save($estado)) {
-                $this->Flash->success(__('The estado has been saved.'));
+                $this->Flash->success(__('Se Guardo Exitosamente.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The estado could not be saved. Please, try again.'));
+            $this->Flash->error(__('Ocurrio un problema. Intentelo de nuevo.'));
         }
         $this->set(compact('estado'));
     }
@@ -74,11 +74,11 @@ class EstadosController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $estado = $this->Estados->patchEntity($estado, $this->request->getData());
             if ($this->Estados->save($estado)) {
-                $this->Flash->success(__('The estado has been saved.'));
+                $this->Flash->success(__('Se Guardo Exitosamente.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The estado could not be saved. Please, try again.'));
+            $this->Flash->error(__('Ocurrio un problema. Intentelo de nuevo.'));
         }
         $this->set(compact('estado'));
     }

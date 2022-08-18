@@ -22,7 +22,7 @@
                     <td><?= $this->Number->format($estado->id) ?></td>
                     <td><?= h($estado->nombre) ?></td>
                     <td><?= $this->Number->format($estado->tipo) ?></td>
-                    <td><?= h($estado->created) ?></td>
+                    <td><?= h(date_format($estado->created, 'd-m-Y')) ?></td>
                     <td class="actions">
                         <?= $this->Html->link('Ver', ['action' => 'view', $estado->id],['class' => 'btn btn-info btn-sm']) ?>
                         <?= $this->Html->link('Editar', ['action' => 'edit', $estado->id],['class' => 'btn btn-primary btn-sm']) ?>

@@ -10,7 +10,7 @@
         <span><?=__('Nombre')?>: <?= $tiposervicio->nombre ?></span>   
     </p>
     <p class="card-text">
-        <span><?=__('Fecha')?>: <?= $tiposervicio->created ?></span>   
+        <span><?=__('Fecha')?>: <?= date_format($tiposervicio->created , 'd-m-Y')?></span>   
     </p>
     <?= $this->html->link('Aceptar',['controller' => 'tiposervicios','action'=>'index'],['class'=>'btn btn-primary']) ?>
     <?= $this->html->link('Editar',['controller' => 'tiposervicios','action'=>'edit', $tiposervicio->id],['class'=>'btn btn-primary']) ?>

@@ -15,6 +15,7 @@
                     echo $this->Form->control('prospecto_id', ['options' => $prospectos, 'class' => 'form-control']);
                     echo $this->Form->control('cargo_contacto',['class'=>'form-control']);
                     echo $this->Form->control('relacion_contacto',['class'=>'form-control']);
+                    echo $this->Form->control('detalle',['class'=>'form-control']);
                 ?>
             </div>
             <div class="button-group pt-3">

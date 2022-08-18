@@ -124,11 +124,11 @@ class UsuariosController extends AppController
             $Usuario = $this->Usuarios->patchEntity($Usuario, $this->request->getData());
             
             if ($this->Usuarios->save($Usuario)) {
-                $this->Flash->success(__('The usuario has been saved.'));
+                $this->Flash->success(__('Se Guardo Exitosamente.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The usuario could not be saved. Please, try again.'));
+            $this->Flash->error(__('Ocurrio un problema. Intentelo de nuevo.'));
         }
         $this->set(compact('Usuario','optPerfiles','optEmpresas'));
     }
@@ -163,11 +163,11 @@ class UsuariosController extends AppController
             $Usuario = $this->Usuarios->patchEntity($Usuario, $this->request->getData());
             
             if ($this->Usuarios->save($Usuario)) {
-                $this->Flash->success(__('The usuario has been saved.'));
+                $this->Flash->success(__('Se Guardo Exitosamente.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The usuario could not be saved. Please, try again.'));
+            $this->Flash->error(__('Ocurrio un problema. Intentelo de nuevo.'));
         }
         $this->set(compact('Usuario','optPerfiles','optEmpresas'));
     }

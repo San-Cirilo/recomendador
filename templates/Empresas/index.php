@@ -26,7 +26,7 @@
                     <th><?= $this->Paginator->sort('activo') ?></th>
                     <th><?= $this->Paginator->sort('created') ?></th>
                     <th><?= $this->Paginator->sort('modified') ?></th>
-                    <th class="actions"><?= __('Actions') ?></th>
+                    <th class="actions"><?= __('Acciones') ?></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -45,8 +45,8 @@
                             <td><?= h($empresa->ciudad) ?></td>
                             <td><?= h($empresa->telefono) ?></td>
                             <td><?= $this->Number->format($empresa->activo) ?></td>
-                            <td><?= h($empresa->created) ?></td>
-                            <td><?= h($empresa->modified) ?></td>
+                            <td><?= date_format($empresa->created, 'd-m-Y') ?></td>
+                            <td><?= date_format($empresa->modified, 'd-m-Y') ?></td>
                             <td class="actions">
                             <?= $this->Html->link('Ver', ['action' => 'view', $empresa->id],['class' => 'btn btn-info btn-sm']) ?>
                             <?= $this->Html->link('Editar', ['action' => 'edit', $empresa->id],['class' => 'btn btn-primary btn-sm']) ?>

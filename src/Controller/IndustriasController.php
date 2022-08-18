@@ -50,11 +50,11 @@ class IndustriasController extends AppController
         if ($this->request->is('post')) {
             $industria = $this->Industrias->patchEntity($industria, $this->request->getData());
             if ($this->Industrias->save($industria)) {
-                $this->Flash->success(__('The industria has been saved.'));
+                $this->Flash->success(__('Se Guardo Exitosamente.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The industria could not be saved. Please, try again.'));
+            $this->Flash->error(__('Ocurrio un problema. Intentelo de nuevo.'));
         }
         $tiposervicios = $this->Industrias->Tiposervicios->find('list', ['limit' => 200])->all();
         $this->set(compact('industria', 'tiposervicios'));
@@ -75,11 +75,11 @@ class IndustriasController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $industria = $this->Industrias->patchEntity($industria, $this->request->getData());
             if ($this->Industrias->save($industria)) {
-                $this->Flash->success(__('The industria has been saved.'));
+                $this->Flash->success(__('Se Guardo Exitosamente.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The industria could not be saved. Please, try again.'));
+            $this->Flash->error(__('Ocurrio un problema. Intentelo de nuevo.'));
         }
         $tiposervicios = $this->Industrias->Tiposervicios->find('list', ['limit' => 200])->all();
         $this->set(compact('industria', 'tiposervicios'));

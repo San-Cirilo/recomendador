@@ -53,15 +53,17 @@ class SolicitudesController extends AppController
         if ($this->request->is('post')) {
             $solicitude = $this->Solicitudes->patchEntity($solicitude, $this->request->getData());
             if ($this->Solicitudes->save($solicitude)) {
-                $this->Flash->success(__('The solicitude has been saved.'));
+                $this->Flash->success(__('Se Guardo Exitosamente.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The solicitude could not be saved. Please, try again.'));
+            $this->Flash->error(__('Ocurrio un problema. Intentelo de nuevo.'));
         }
         $productos = $this->Solicitudes->Productos->find('list', ['limit' => 200])->all();
         $prospectos = $this->Solicitudes->Prospectos->find('list', ['limit' => 200])->all();
         $estados = $this->Solicitudes->Estados->find('list', ['limit' => 200])->all();
+
+        // print_r($productos);exit;
         $this->set(compact('solicitude', 'productos', 'prospectos', 'estados'));
     }
 
@@ -80,11 +82,11 @@ class SolicitudesController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $solicitude = $this->Solicitudes->patchEntity($solicitude, $this->request->getData());
             if ($this->Solicitudes->save($solicitude)) {
-                $this->Flash->success(__('The solicitude has been saved.'));
+                $this->Flash->success(__('Se Guardo Exitosamente.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The solicitude could not be saved. Please, try again.'));
+            $this->Flash->error(__('Ocurrio un problema. Intentelo de nuevo.'));
         }
         $productos = $this->Solicitudes->Productos->find('list', ['limit' => 200])->all();
         $prospectos = $this->Solicitudes->Prospectos->find('list', ['limit' => 200])->all();

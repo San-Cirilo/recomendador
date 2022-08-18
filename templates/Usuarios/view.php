@@ -25,7 +25,7 @@
         <span><?=__('Empresa')?>: <?= $Usuario->empresa->razon_social ?></span>   
     </p>
     <p class="card-text">
-        <span><?=__('Fecha')?>: <?= $Usuario->created ?></span>   
+        <span><?=__('Fecha')?>: <?= date_format($Usuario->created, 'd-m-Y') ?></span>   
     </p>
     <?= $this->html->link('Aceptar',['controller' => 'Usuarios','action'=>'index'],['class'=>'btn btn-primary']) ?>
     <?= $this->html->link('Editar',['controller' => 'Usuarios','action'=>'edit', $Usuario->id],['class'=>'btn btn-primary']) ?>

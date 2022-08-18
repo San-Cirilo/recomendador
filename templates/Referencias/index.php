@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="page-header">
-            <h2>Prospectos</h2>
+            <h2>Referencias</h2>
             <hr>
         </div>
         <div class="table-responsive">
@@ -24,12 +24,12 @@
                 <?php foreach ($referencias as $referencia): ?>
                 <tr>
                     <td><?= $this->Number->format($referencia->id) ?></td>
-                    <td><?= $referencia->has('producto') ? $this->Html->link($referencia->producto->id, ['controller' => 'Productos', 'action' => 'view', $referencia->producto->id]) : '' ?></td>
-                    <td><?= $referencia->has('usuario') ? $this->Html->link($referencia->usuario->id, ['controller' => 'Usuarios', 'action' => 'view', $referencia->usuario->id]) : '' ?></td>
-                    <td><?= $referencia->has('estado') ? $this->Html->link($referencia->estado->id, ['controller' => 'Estados', 'action' => 'view', $referencia->estado->id]) : '' ?></td>
-                    <td><?= $referencia->has('prospecto') ? $this->Html->link($referencia->prospecto->id, ['controller' => 'Prospectos', 'action' => 'view', $referencia->prospecto->id]) : '' ?></td>
-                    <td><?= h($referencia->cargo_contacto) ?></td>
-                    <td><?= h($referencia->relacion_contacto) ?></td>
+                    <td><?= $referencia->has('producto') ? $this->Html->link($referencia->producto->nombre, ['controller' => 'Productos', 'action' => 'view', $referencia->producto->id]) : '' ?></td>
+                    <td><?= $referencia->has('usuario') ? $this->Html->link($referencia->usuario->nombres, ['controller' => 'Usuarios', 'action' => 'view', $referencia->usuario->id]) : '' ?></td>
+                    <td><?= $referencia->has('estado') ? $this->Html->link($referencia->estado->nombre, ['controller' => 'Estados', 'action' => 'view', $referencia->estado->id]) : '' ?></td>
+                    <td><?= $referencia->has('prospecto') ? $this->Html->link($referencia->prospecto->nombre, ['controller' => 'Prospectos', 'action' => 'view', $referencia->prospecto->id]) : '' ?></td>
+                    <td><?= h(date_format($referencia->cargo_contacto, 'd-m-Y')) ?></td>
+                    <td><?= h(date_format($referencia->relacion_contacto, 'd-m-Y')) ?></td>
                     <td class="actions">
                         <?= $this->Html->link('Ver', ['action' => 'view', $referencia->id],['class' => 'btn btn-info btn-sm']) ?>
                         <?= $this->Html->link('Editar', ['action' => 'edit', $referencia->id],['class' => 'btn btn-primary btn-sm']) ?>

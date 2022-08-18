@@ -50,11 +50,11 @@ class PerfilesController extends AppController
         if ($this->request->is('post')) {
             $perfile = $this->Perfiles->patchEntity($perfile, $this->request->getData());
             if ($this->Perfiles->save($perfile)) {
-                $this->Flash->success(__('The perfile has been saved.'));
+                $this->Flash->success(__('Se Guardo Exitosamente.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The perfile could not be saved. Please, try again.'));
+            $this->Flash->error(__('Ocurrio un problema. Intentelo de nuevo.'));
         }
         $this->set(compact('perfile'));
     }
@@ -74,11 +74,11 @@ class PerfilesController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $perfile = $this->Perfiles->patchEntity($perfile, $this->request->getData());
             if ($this->Perfiles->save($perfile)) {
-                $this->Flash->success(__('The perfile has been saved.'));
+                $this->Flash->success(__('Se Guardo Exitosamente.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The perfile could not be saved. Please, try again.'));
+            $this->Flash->error(__('Ocurrio un problema. Intentelo de nuevo.'));
         }
         $this->set(compact('perfile'));
     }
